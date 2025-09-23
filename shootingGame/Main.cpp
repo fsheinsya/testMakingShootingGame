@@ -40,5 +40,7 @@ void Main()
 		player.update();
 
 		player.draw();
+
+		//Git te3t//
 	}
 }
