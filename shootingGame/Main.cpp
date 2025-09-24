@@ -40,11 +40,14 @@ void Main()
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 		player.draw();
 <<<<<<< HEAD
 
 		//Git te3t//
 =======
+=======
+>>>>>>> parent of b5e7595 (cmdを使わずにプッシュしてみたお)
 =======
 >>>>>>> parent of b5e7595 (cmdを使わずにプッシュしてみたお)
 		// テキストを描く | Draw text
@@ -101,11 +104,14 @@ void Main()
 		// プレイヤーを描く | Draw the player
 		emoji.scaled(0.75).mirrored(isPlayerFacingRight).drawAt(playerPosX, 540);
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> parent of b5e7595 (cmdを使わずにプッシュしてみたお)
 =======
 >>>>>>> parent of b5e7595 (cmdを使わずにプッシュしてみたお)
 =======
 >>>>>>> parent of 4faecb7 (Gitcut)
+=======
+>>>>>>> parent of b5e7595 (cmdを使わずにプッシュしてみたお)
 	}
 }
 
