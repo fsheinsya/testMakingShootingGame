@@ -41,6 +41,7 @@ void Main()
 <<<<<<< HEAD
 <<<<<<< HEAD
 		player.draw();
+<<<<<<< HEAD
 
 		//Git te3t//
 =======
@@ -103,6 +104,8 @@ void Main()
 >>>>>>> parent of b5e7595 (cmdを使わずにプッシュしてみたお)
 =======
 >>>>>>> parent of b5e7595 (cmdを使わずにプッシュしてみたお)
+=======
+>>>>>>> parent of 4faecb7 (Gitcut)
 	}
 }
 
