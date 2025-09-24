@@ -39,10 +39,13 @@ void Main()
 		texture.draw(20, 20);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 		player.draw();
 
 		//Git te3t//
 =======
+=======
+>>>>>>> parent of b5e7595 (cmdを使わずにプッシュしてみたお)
 		// テキストを描く | Draw text
 		font(U"Hello, Siv3D!🎮").draw(64, Vec2{ 20, 340 }, ColorF{ 0.2, 0.4, 0.8 });
 
@@ -96,6 +99,9 @@ void Main()
 
 		// プレイヤーを描く | Draw the player
 		emoji.scaled(0.75).mirrored(isPlayerFacingRight).drawAt(playerPosX, 540);
+<<<<<<< HEAD
+>>>>>>> parent of b5e7595 (cmdを使わずにプッシュしてみたお)
+=======
 >>>>>>> parent of b5e7595 (cmdを使わずにプッシュしてみたお)
 	}
 }
