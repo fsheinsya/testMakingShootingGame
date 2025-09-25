@@ -67,12 +67,33 @@ private:
 		Vec2 bulletPos;
 };
 
+struct Enemy
+{
+public:
+	Enemy() : enemyPos(300.0,0.0) {};
+	void update()
+	{
+		enemyPos.y += 5.0;
+	}
+	void draw() const
+	{
+		enemyDraw
+		.drawAt(enemyPos);
+	}
+private:
+	Vec2 enemyPos;
+
+	Texture enemyDraw{ U"😁"_emoji };
+};
+
 void Main()
 {
 	Window::Resize(600, 800);
 
 	Player player;
 	Array<Bullet> bullets;
+
+	Enemy enemy;
 
 	while (System::Update())
 	{
@@ -95,5 +116,9 @@ void Main()
 		{
 			bullet.draw();
 		}
+
+		//敵の生成
+		enemy.update();
+		enemy.draw();
 	}
 }
