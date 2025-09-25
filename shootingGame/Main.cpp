@@ -7,26 +7,64 @@ public:
 	void update()
 	{
 		//操作
-		if (KeyW.pressed()) playerPos.y -= 5.0;
-		if (KeyS.pressed()) playerPos.y += 5.0;
-		if (KeyA.pressed()) playerPos.x -= 5.0;
-		if (KeyD.pressed()) playerPos.x += 5.0;
+		if (KeyW.pressed()) playerPos.y -= 10.0;
+		if (KeyS.pressed()) playerPos.y += 10.0;
+		if (KeyA.pressed()) playerPos.x -= 10.0;
+		if (KeyD.pressed()) playerPos.x += 10.0;
 
 		//画面外に出ないようにする
 		playerPos.x = Clamp(playerPos.x, 50.0, 550.0);
 		playerPos.y = Clamp(playerPos.y, 100.0, 700.0);
 	}
 
+	//ブレイヤーの描画
 	void draw()
 	{
 		pleyerDraw
 			.rotated(-45_deg)
 			.drawAt(playerPos);
 	}
+
+	//プレイヤーの位置を取得
+	Vec2 getPos() const
+	{
+		return playerPos;
+	}
+
 private:
 	Vec2 playerPos;
 
 	Texture pleyerDraw{ U"🚀"_emoji };
+};
+
+class Bullet
+{
+public:
+	Bullet(Vec2 startPos) : bulletPos(startPos) {};
+
+	//弾の更新
+	void update()
+	{
+		bulletPos.y -= 10.0;
+	}
+
+	//弾の描画
+	void draw() const
+	{
+		bulletDraw
+		.drawAt(bulletPos);
+	}
+
+	//画面外に排出された弾の削除
+	bool isOffScreen() const
+	{
+		return bulletPos.y < 0.0;
+	}
+
+private:
+		Texture bulletDraw{ U"⭐"_emoji };
+
+		Vec2 bulletPos;
 };
 
 void Main()
@@ -34,13 +72,28 @@ void Main()
 	Window::Resize(600, 800);
 
 	Player player;
+	Array<Bullet> bullets;
 
 	while (System::Update())
 	{
 		player.update();
 
-		player.draw();
+		if(KeySpace.down())
+		{
+			bullets << Bullet(player.getPos());
+		}
 
-		//Git te3t//
+		for(auto& bullet : bullets)
+		{
+			bullet.update();
+		}
+
+		bullets.remove_if([](const Bullet& b) { return b.isOffScreen(); });
+
+		player.draw();
+		for(const auto& bullet : bullets)
+		{
+			bullet.draw();
+		}
 	}
 }
